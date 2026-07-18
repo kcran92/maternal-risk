@@ -1,0 +1,189 @@
+1. Background
+
+Gestational diabetes mellitus (GDM) is a form of diabetes that develops during pregnancy and affects both maternal and fetal health. It is associated with increased risks of complications such as preeclampsia, cesarean delivery, macrosomia, neonatal hypoglycemia, and a higher likelihood of developing type 2 diabetes later in life.
+
+Current screening for GDM commonly occurs between 24 and 28 weeks of gestation using an oral glucose tolerance test (OGTT). While effective, this timing may delay opportunities for earlier monitoring and preventive interventions in patients at elevated risk.
+
+Machine learning offers the potential to estimate a patient's risk earlier in pregnancy using routinely collected clinical information, allowing healthcare providers to identify higher-risk patients sooner.
+
+2. Problem Statement
+
+Can gestational diabetes be accurately predicted during early pregnancy using routinely collected maternal characteristics?
+
+3. Business (Clinical) Objective
+
+Develop an explainable machine learning model that estimates a pregnant patient's risk of developing gestational diabetes using information that would typically be available during the early stages of prenatal care.
+
+The goal is not to diagnose GDM, but to support clinicians in identifying patients who may benefit from additional monitoring or preventive interventions.
+
+4. Stakeholders
+
+Primary:
+
+Obstetricians
+Maternal-Fetal Medicine Specialists
+Certified Nurse Midwives
+Nurse Practitioners
+
+Secondary:
+
+Diabetes Educators
+Care Coordinators
+Hospital Administrators
+Public Health Organizations
+
+Patients may also indirectly benefit through earlier identification of increased risk and more personalized prenatal care.
+
+5. Research Question
+
+Can gestational diabetes be accurately predicted during early pregnancy using routinely collected maternal characteristics?
+
+6. Hypothesis
+
+We hypothesize that routinely collected maternal demographic, medical history, and clinical measurements can identify patients at elevated risk for gestational diabetes before routine diagnostic screening with clinically useful performance.
+
+7. Dataset
+
+Source:
+
+Kaggle dataset referencing:
+
+Sumathi Amarnath & Meganathan Selvamani
+Rank Based Random Forest Model for Gestational Diabetes Mellitus Prediction
+Tech Science Press publications
+
+Dataset size:
+
+3,525 patients
+17 variables
+Binary outcome (GDM vs. Non-GDM)
+8. Scope
+Included
+Data cleaning
+Missing value analysis
+Exploratory Data Analysis
+Feature engineering
+Baseline statistical model
+Multiple machine learning models
+Explainable AI
+Clinical interpretation
+Model comparison
+Final recommendations
+Out of Scope
+Clinical deployment
+Real-time hospital integration
+Prospective validation
+FDA-regulated clinical decision support
+9. Success Metrics
+
+Instead of optimizing only accuracy, we'll evaluate:
+
+Primary metrics:
+
+ROC-AUC
+Recall (Sensitivity)
+Precision-Recall AUC
+
+Secondary metrics:
+
+Precision
+Specificity
+F1-score
+Calibration
+Confusion Matrix
+
+We'll also justify why these metrics matter in the context of gestational diabetes screening.
+
+10. Key Risks
+Data Leakage
+
+This is the biggest technical risk.
+
+Features such as OGTT may have been collected during diagnostic testing rather than early pregnancy.
+
+If so, including them in the primary model could leak information about the outcome and overstate model performance.
+
+We'll investigate the timing of each variable and document our rationale for including or excluding them.
+
+Missing Data
+
+Several clinical variables have missing values.
+
+We'll explore:
+
+amount of missingness,
+patterns of missingness,
+and appropriate imputation strategies.
+Generalizability
+
+The dataset may represent a single population or healthcare setting.
+
+We'll discuss how this could affect performance in other populations.
+
+Bias
+
+We'll examine whether model performance differs across available patient subgroups and discuss potential sources of bias without over-interpreting the findings.
+
+11. Deliverables
+
+By the end of the project, we'll produce:
+
+GitHub repository
+Professional README
+Literature review
+Data cleaning notebook
+EDA notebook
+Feature engineering notebook
+Modeling notebook
+Explainability notebook
+Final written report
+Executive presentation
+(Stretch goal) Streamlit application or interactive risk calculator
+12. Project Timeline
+Sprint 0
+
+Project Charter
+
+Literature Review
+
+Dataset Audit
+
+Sprint 1
+
+Data Cleaning
+
+Missing Data Analysis
+
+Initial EDA
+
+Sprint 2
+
+Feature Engineering
+
+Baseline Logistic Regression
+
+Sprint 3
+
+Tree-based Models
+
+Hyperparameter Tuning
+
+Cross-validation
+
+Sprint 4
+
+Explainability
+
+SHAP
+
+Calibration
+
+Threshold Selection
+
+Sprint 5
+
+Clinical Interpretation
+
+Final Report
+
+Portfolio Polish
