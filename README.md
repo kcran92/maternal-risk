@@ -9,11 +9,15 @@
 - [Why this project?](#why-this-project)
 - [Project Objective](#project-objective)
 - [Research Question](#research-question)
+- [Project Workflow](#project-workflow)
+- [Current Progress](#current-progress)
+- [Planned Modeling Approach](#planned-modeling-approach)
 - [Current Status](#current-status)
 - [Repository Structure](#repository-structure)
 - [Technologies](#technologies)
 - [Disclaimer](#disclaimer)
 - [Development Notes](#development-notes)
+- [Future Enhancements](#future-enhancements)
 
 ## Why this project?
 
@@ -42,6 +46,37 @@ The project emphasizes:
 
 > Can gestational diabetes be accurately predicted during early pregnancy using routinely collected maternal characteristics?
 
+## Project Workflow
+
+This project follows a structured and reproducible analytical workflow.
+
+1. Project Planning
+2. Dataset Audit
+3. Data Quality Assessment & Preprocessing
+4. Exploratory Data Analysis
+5. Feature Engineering
+6. Baseline Modeling (Logistic Regression)
+7. Ensemble Modeling (Random Forest & XGBoost)
+8. Model Explainability (SHAP)
+9. Calibration & Clinical Evaluation
+10. Final Report
+
+---
+
+## Current Progress
+
+The project is currently transitioning from data preparation to exploratory data analysis.
+
+Completed work includes:
+
+- Dataset auditing
+- Missing data investigation
+- Data quality assessment
+- Documentation of preprocessing decisions
+- Creation of a cleaned dataset for downstream analysis
+
+The next phase focuses on identifying clinically meaningful relationships among predictors before model development.
+
 ## Planned Modeling Approach
 
 To evaluate whether gestational diabetes can be predicted using information available during the first prenatal visit, several machine learning models will be developed and compared.
@@ -63,7 +98,7 @@ Models will be evaluated using clinically meaningful performance metrics, includ
 
 Model explainability techniques, including SHAP (SHapley Additive exPlanations), will be used to interpret predictions and identify the most influential clinical features.
 
-Rather than selecting the model with the highest accuracy alone, this project emphasizes the trade-offs between predictive performance, interpretability, and potential clinical usefulness.
+Rather than selecting the model with the highest predictive performance alone, this project emphasizes the trade-offs between predictive performance, interpretability, calibration, and potential clinical usefulness.
 
 ## Current Status
 
@@ -74,11 +109,11 @@ Completed:
 - [x] Project proposal
 - [x] Repository setup
 - [x] Dataset audit
+- [x] Data quality assessment & preprocessing strategy
 - [x] Documentation and project planning
 
 In Progress:
 
-- [ ] Data cleaning
 - [ ] Exploratory data analysis
 
 Planned:
@@ -97,13 +132,23 @@ Planned:
 maternal-risk/
 │
 ├── data/
+│   ├── raw/
+│   └── processed/
+│
 ├── notebooks/
-├── src/
+│   ├── 01_dataset_audit.ipynb
+│   ├── 02_data_cleaning.ipynb
+│   └── ...
+│
+├── docs/
 ├── reports/
-├── references/
 ├── figures/
 ├── models/
-├── docs/
+├── src/
+│
+├── decision_log.md
+├── journal.md
+├── requirements.txt
 └── README.md
 ```
 
@@ -139,3 +184,13 @@ The predictive models developed in this repository are not intended for clinical
 This repository documents the complete lifecycle of an applied healthcare data science project—from project planning and data auditing through model development, evaluation, and interpretation.
 
 The goal is not only to build a predictive model, but also to demonstrate professional data science practices, including reproducibility, documentation, explainability, and thoughtful model evaluation.
+
+## Future Enhancements
+
+Potential extensions include:
+
+- External dataset validation
+- Hyperparameter optimization
+- Streamlit dashboard
+- Model deployment
+- Additional explainability analyses
