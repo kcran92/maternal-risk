@@ -65,18 +65,20 @@ This project follows a structured and reproducible analytical workflow.
 
 ## Current Progress
 
-The project has completed the data understanding phase and has entered exploratory data analysis.
+The project has completed the data understanding and exploratory data analysis phases.
 
 Completed work includes:
 
-- Dataset auditing
+- Dataset audit
 - Missing data investigation
 - Data quality assessment
 - Documentation of preprocessing decisions
 - Creation of a cleaned dataset for downstream analysis
-- Development of the exploratory data analysis framework
+- Exploratory analysis of continuous and binary clinical variables
+- Investigation of relationships with gestational diabetes
+- Correlation and missingness analysis
 
-The next phase focuses on investigating feature distributions, relationships with gestational diabetes, and interactions among clinical variables to guide feature engineering and model development.
+The next phase focuses on feature engineering and preparation of a modeling-ready dataset for machine learning.
 
 ## Planned Modeling Approach
 
@@ -111,16 +113,15 @@ Completed:
 - [x] Repository setup
 - [x] Dataset audit
 - [x] Data quality assessment & preprocessing strategy
+- [x] Exploratory data analysis
 - [x] Documentation and project planning
 
 In Progress:
 
-- [x] Exploratory data analysis framework
-- [ ] Exploratory data analysis
+- [ ] Feature engineering
 
 Planned:
 
-- [ ] Feature engineering
 - [ ] Baseline Logistic Regression
 - [ ] Random Forest
 - [ ] XGBoost
@@ -140,6 +141,7 @@ maternal-risk/
 ├── notebooks/
 │   ├── 01_dataset_audit.ipynb
 │   ├── 02_data_cleaning.ipynb
+│   ├── 03_exploratory_data_analysis.ipynb
 │   └── ...
 │
 ├── docs/
