@@ -65,7 +65,7 @@ This project follows a structured and reproducible analytical workflow.
 
 ## Current Progress
 
-The project is currently transitioning from data preparation to exploratory data analysis.
+The project has completed the data understanding phase and has entered exploratory data analysis.
 
 Completed work includes:
 
@@ -74,8 +74,9 @@ Completed work includes:
 - Data quality assessment
 - Documentation of preprocessing decisions
 - Creation of a cleaned dataset for downstream analysis
+- Development of the exploratory data analysis framework
 
-The next phase focuses on identifying clinically meaningful relationships among predictors before model development.
+The next phase focuses on investigating feature distributions, relationships with gestational diabetes, and interactions among clinical variables to guide feature engineering and model development.
 
 ## Planned Modeling Approach
 
@@ -114,6 +115,7 @@ Completed:
 
 In Progress:
 
+- [x] Exploratory data analysis framework
 - [ ] Exploratory data analysis
 
 Planned:
