@@ -44,7 +44,14 @@ The project emphasizes:
 
 ## Research Question
 
-> Can gestational diabetes be accurately predicted during early pregnancy using routinely collected maternal characteristics?
+**How accurately can gestational diabetes be predicted using information available early in pregnancy, and how does predictive performance change once OGTT results become available?**
+
+To address this question, the project evaluates two clinically distinct modeling scenarios:
+
+- **Early Pregnancy Model:** Uses maternal characteristics, medical history, and clinical measurements available before routine gestational diabetes screening.
+- **Post-OGTT Comparison Model:** Uses the same predictors with the addition of the Oral Glucose Tolerance Test (OGTT) result.
+
+This design allows the project to evaluate both the feasibility of early risk assessment and the additional predictive information gained after routine glucose screening.
 
 ## Project Workflow
 
@@ -65,69 +72,66 @@ This project follows a structured and reproducible analytical workflow.
 
 ## Current Progress
 
-The project has completed the data understanding and exploratory data analysis phases.
+The project has completed the data understanding, exploratory analysis, feature engineering, and model preparation phases.
 
 Completed work includes:
 
-- Dataset audit
-- Missing data investigation
-- Data quality assessment
+- Dataset audit and feature inventory
+- Data quality and missingness assessment
 - Documentation of preprocessing decisions
-- Creation of a cleaned dataset for downstream analysis
 - Exploratory analysis of continuous and binary clinical variables
 - Investigation of relationships with gestational diabetes
 - Correlation and missingness analysis
+- Definition of Early Pregnancy and Post-OGTT modeling scenarios
+- Creation of a shared stratified train/test split
+- Development of model-specific preprocessing pipelines
+- Median imputation with missingness indicators for incomplete clinical measurements
+- Feature standardization for Logistic Regression
+- Validation of leakage-safe preprocessing workflows
+- Creation of reusable preprocessing and split artifacts
 
-The next phase focuses on feature engineering and preparation of a modeling-ready dataset for machine learning.
+The next phase will establish an interpretable Logistic Regression baseline for both modeling scenarios before comparing performance with tree-based models.
 
 ## Planned Modeling Approach
 
-To evaluate whether gestational diabetes can be predicted using information available during the first prenatal visit, several machine learning models will be developed and compared.
+The modeling phase will compare two feature scenarios across multiple machine-learning algorithms.
 
-The planned modeling pipeline includes:
+The **Early Pregnancy** scenario will serve as the primary analysis and will exclude OGTT to approximate risk assessment before routine gestational diabetes screening. The **Post-OGTT** scenario will add OGTT to evaluate how predictive performance changes once glucose-testing information becomes available.
 
-- Logistic Regression (interpretable baseline)
-- Decision Tree
+Both scenarios will use identical train/test observations and consistent evaluation procedures to support fair comparison.
+
+Planned algorithms include:
+
+- Logistic Regression
 - Random Forest
 - XGBoost
 
-Models will be evaluated using clinically meaningful performance metrics, including:
-
-- ROC-AUC
-- Recall (Sensitivity)
-- Precision
-- F1-score
-- Calibration (Brier Score and calibration curves)
-
-Model explainability techniques, including SHAP (SHapley Additive exPlanations), will be used to interpret predictions and identify the most influential clinical features.
-
-Rather than selecting the model with the highest predictive performance alone, this project emphasizes the trade-offs between predictive performance, interpretability, calibration, and potential clinical usefulness.
+Model performance will be evaluated using metrics appropriate for binary clinical prediction, including ROC-AUC, recall/sensitivity, specificity, precision, F1-score, and calibration. Particular attention will be given to sensitivity because failure to identify a patient at elevated risk may have greater clinical consequences than a false-positive risk classification.
 
 ## Current Status
 
-🚧 This project is currently in active development.
+### Completed
 
-Completed:
-
-- [x] Project proposal
-- [x] Repository setup
+- [x] Project proposal and clinical motivation
+- [x] Repository setup and documentation
 - [x] Dataset audit
-- [x] Data quality assessment & preprocessing strategy
+- [x] Data quality assessment and preprocessing strategy
 - [x] Exploratory data analysis
-- [x] Documentation and project planning
+- [x] Feature engineering and model preparation
 
-In Progress:
-
-- [ ] Feature engineering
-
-Planned:
+### Next
 
 - [ ] Baseline Logistic Regression
-- [ ] Random Forest
-- [ ] XGBoost
-- [ ] Model explainability (SHAP)
-- [ ] Calibration analysis
-- [ ] Final report
+
+### Planned
+
+- [ ] Random Forest modeling
+- [ ] XGBoost modeling
+- [ ] Model comparison and hyperparameter tuning
+- [ ] Final model evaluation
+- [ ] Model explainability
+- [ ] Clinical interpretation and limitations
+- [ ] Final project documentation
 
 ## Repository Structure
 
@@ -135,25 +139,25 @@ Planned:
 maternal-risk/
 │
 ├── data/
-│   ├── raw/
-│   └── processed/
+│   ├── raw/                         # Original dataset
+│   └── processed/                   # Cleaned data used for analysis and modeling
 │
 ├── notebooks/
 │   ├── 01_dataset_audit.ipynb
 │   ├── 02_data_cleaning.ipynb
 │   ├── 03_exploratory_data_analysis.ipynb
-│   └── ...
+│   └── 04_feature_engineering_and_model_preparation.ipynb
 │
-├── docs/
-├── reports/
-├── figures/
-├── models/
-├── src/
+├── docs/                            # Supporting project documentation
+├── reports/                         # Final reports and analytical summaries
+├── figures/                         # Exported visualizations
+├── models/                          # Generated preprocessing and model artifacts
+├── src/                             # Reusable project source code
 │
-├── decision_log.md
-├── journal.md
-├── requirements.txt
-└── README.md
+├── decision_log.md                  # Major analytical and modeling decisions
+├── journal.md                       # Development notes and project reflections
+├── requirements.txt                 # Python dependencies
+└── README.md                        # Project overview and documentation
 ```
 
 ## Technologies

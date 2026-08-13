@@ -21,4 +21,4 @@ data/processed/
 
 # Models
 models/*.pkl
-models/*.joblib
+models/**/*.joblib
